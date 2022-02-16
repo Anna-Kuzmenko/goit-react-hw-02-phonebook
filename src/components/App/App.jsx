@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
 
@@ -77,5 +78,20 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  state: PropTypes.arrayOf(
+    PropTypes.shape({
+      contacts: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          number: PropTypes.string.isRequired,
+        }),
+      ),
+      filter: PropTypes.string.isRequired,
+    }),
+  ),
+};
 
 export default App;
